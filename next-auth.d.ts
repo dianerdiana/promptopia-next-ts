@@ -9,7 +9,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       /** The user's postal id. */
-      id: string;
+      id: Record<string, unknown>;
     } & DefaultSession["user"];
   }
 
