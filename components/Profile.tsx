@@ -5,8 +5,8 @@ type ProfileProps = {
   name: string;
   desc: string;
   data: PromptType[];
-  handleEdit?: () => void;
-  handleDelete?: () => Promise<void>;
+  handleEdit?: (data: PromptType) => void;
+  handleDelete?: (data: PromptType) => Promise<void>;
 };
 
 const Profile = ({
@@ -30,8 +30,8 @@ const Profile = ({
             <PromptCard
               key={post._id}
               post={post}
-              handleEdit={() => handleEdit && handleEdit}
-              handleDelete={() => handleDelete && handleDelete}
+              handleEdit={() => handleEdit && handleEdit(post)}
+              handleDelete={() => handleDelete && handleDelete(post)}
             />
           );
         })}

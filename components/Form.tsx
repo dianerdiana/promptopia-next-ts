@@ -26,7 +26,7 @@ const Form: FC<FormProps> = ({
       </h1>
       <p className="desc text-left max-w-md">
         {type} and share amazing prompts with the world, and let your
-        imaginarion run wild with any AI-powered platform
+        imagination run wild with any AI-powered platform
       </p>
 
       <form
