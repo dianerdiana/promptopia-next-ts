@@ -23,6 +23,19 @@ const Nav = () => {
   const [providers, setProviders] = useState<Record<LiteralUnion<BuiltInProviderType, string>,ClientSafeProvider> | null>(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
+  // Definisikan fungsi logout
+  const handleLogoutClick: React.MouseEventHandler<
+    HTMLButtonElement
+  > = async () => {
+    try {
+      // Panggil fungsi logout di sini
+      await signOut();
+    } catch (error) {
+      // Tangani kesalahan jika diperlukan
+      console.error("Gagal logout:", error);
+    }
+  };
+
   useEffect(() => {
     const setUpProviders = async () => {
       const response = await getProviders();
@@ -52,7 +65,11 @@ const Nav = () => {
               Create Post
             </Link>
 
-            <button onClick={signOut} type="button" className="outline_btn">
+            <button
+              onClick={handleLogoutClick}
+              type="button"
+              className="outline_btn"
+            >
               Sign Out
             </button>
 
